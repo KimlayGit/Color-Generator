@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Hex Color Generator</title>
+</head>
+<body>
+    <button id="btn" class="block m-auto mt-[350px] bg-green-200 py-3 px-4 border-solid border-2 border-pink-200 rounded-lg  hover:bg-green-500  hover:border-black-300  duration-300 hover:border md:max-w-2xl">Click To Generate a Color</button>
+    <p id="id" class="text-center mt-4"></p>
+</body>
+<script>
+    const hexColor = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+
+    const btn = document.querySelector("#btn");
+    const display = document.querySelector("#id");
+
+
+    const generateColor = () => Math.floor(Math.random() * hexColor.length)
+    
+    const changeColor = () =>{
+        let hexCode = "#";
+        for(let i = 0; i < 6; i++){
+            hexCode += hexColor[generateColor()];
+        }
+        document.body.style.background = hexCode;
+        display.innerHTML=hexCode;
+    }
+    btn.addEventListener("click",changeColor);
+</script>
+</html>
